@@ -1,4 +1,4 @@
-# Changelog v1.12.7
+# Changelog v1.12.8.1
 
-## Additions
-- Added built-in dark mode resource pack
+## Fixes
+- Fixed instant crash
