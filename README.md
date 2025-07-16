@@ -9,17 +9,19 @@ For more information check the [wiki](https://wiki.devnemo.com/projects/minecraf
 <br><br>
 
 # Compatibilities  
-- [Nemo's Mossy Blocks](https://www.curseforge.com/minecraft/mc-mods/nemos-mossy-blocks) by NemoNotFound (me) - Version 1.20.1 - 1.21.1
-- [More Slabs, Stairs, and Walls](https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls) by Nibaru - Version 1.19.2 - 1.20.4
-- [Oh The Biomes You'll Go Refabricated](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric) by AOCAWOL - Version 1.19.2 
-- [Regions Unexplored](https://www.curseforge.com/minecraft/mc-mods/regions-unexplored) by UHQ_GAMES - Version 1.19.2 - 1.20.4 
-- [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology) by Pandarix - Version 1.20.1 - 1.20.4 
-- [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty) by Forstride - Version 1.19.2 - 1.21 
-- [Danger Close](https://www.curseforge.com/minecraft/mc-mods/danger-close) by Lupin - Version 1.19.2 - 1.21 
-- [More Chests Variants (MCV)](https://modrinth.com/mod/more-chest-variants-lieonlion) by LieOnLion - Version 1.19.2 - 1.21 
-- [More Crafting Tables (MCT)](https://modrinth.com/mod/more-crafting-tables-lieonlion) by LieOnLion - Version 1.20.1 - 1.21 
-- [More Composter Variants](https://modrinth.com/mod/more-composter-variants) by pnku - Version 1.20.1 - 1.21 
-- [More Barrel Variants](https://modrinth.com/mod/more-barrel-variants) by pnku - Version 1.20.1 - 1.21
+| Mod                                                                                                                | Author       | Supported Versions |
+| ------------------------------------------------------------------------------------------------------------------ | ------------ | ------------------ |
+| [Nemo's Mossy Blocks](https://www.curseforge.com/minecraft/mc-mods/nemos-mossy-blocks)                             | DevNemo (me) | 1.20.1 - 1.21.1    |
+| [More Slabs, Stairs, and Walls](https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls)          | Nibaru       | 1.19.2 - 1.20.4    |
+| [Oh The Biomes You'll Go Refabricated](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric) | AOCAWOL      | 1.19.2             |
+| [Regions Unexplored](https://www.curseforge.com/minecraft/mc-mods/regions-unexplored)                              | UHQGAMES     | 1.19.2 - 1.20.4    |
+| [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology)                                | Pandarix     | 1.20.1 - 1.20.4    |
+| [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty)                                   | Forstride    | 1.19.2 - 1.21      |
+| [Danger Close](https://www.curseforge.com/minecraft/mc-mods/danger-close)                                          | Lupin        | 1.19.2 - 1.21      |
+| [More Chest Variants (MCV)](https://modrinth.com/mod/more-chest-variants-lieonlion)                                | LieOnLion    | 1.19.2 - 1.21      |
+| [More Crafting Tables (MCT)](https://modrinth.com/mod/more-crafting-tables-lieonlion)                              | LieOnLion    | 1.20.1 - 1.21      |
+| [More Composter Variants](https://modrinth.com/mod/more-composter-variants)                                        | pnku         | 1.20.1 - 1.21      |
+| [More Barrel Variants](https://modrinth.com/mod/more-barrel-variants)                                              | pnku         | 1.20.1 - 1.21      |
 <br>
 <br>
 
