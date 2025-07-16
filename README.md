@@ -3,7 +3,7 @@
 
 # Description
 The Woodcutter works just like a Stonecutter — but for wood!<br>
-For more information check the [wiki](https://github.com/NemoNotFound/NemosWoodcutter/wiki).
+For more information check the [wiki](https://wiki.devnemo.com/projects/minecraft-mods/nemos-woodcutter/general).
 
 **Note:** If you're a dark mode enthusiast, you can use the built-in dark mode resource pack.
 <br><br>
