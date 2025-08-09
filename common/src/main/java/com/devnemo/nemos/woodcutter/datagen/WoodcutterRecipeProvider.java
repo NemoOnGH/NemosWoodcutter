@@ -47,6 +47,15 @@ public abstract class WoodcutterRecipeProvider extends RecipeProvider {
                 .save(output, convertBetween(result, tagPath) + "_woodcutting");
     }
 
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, TagKey<Item> inputTag, String criteria, int inputCount, Item result, int outputCount) {
+        String tagPath = inputTag.location().getPath();
+        Ingredient ingredient = tag(inputTag);
+
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, result, outputCount)
+                .unlockedBy(criteria, this.has(inputTag))
+                .save(output, convertBetween(result, tagPath) + "_woodcutting");
+    }
+
     protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, ItemLike input, Item result) {
         Ingredient ingredient = Ingredient.of(input);
         String blockName = BuiltInRegistries.ITEM.getKey(input.asItem()).getPath();

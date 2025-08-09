@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#nemos_mossy_blocks:pale_mossy_warped_wood",
+  "inputCount": 1,
+  "result": {
+    "count": 16,
+    "id": "nemos_mossy_blocks:pale_mossy_warped_pressure_plate"
+  }
+}

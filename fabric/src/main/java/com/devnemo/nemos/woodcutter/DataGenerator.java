@@ -1,6 +1,7 @@
 package com.devnemo.nemos.woodcutter;
 
 import com.devnemo.nemos.woodcutter.datagen.BiomesOPlentyRecipeProvider;
+import com.devnemo.nemos.woodcutter.datagen.NemosMossyBlocksRecipeProvider;
 import com.devnemo.nemos.woodcutter.datagen.WoodcuttingRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 
@@ -12,5 +13,6 @@ public class DataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(WoodcuttingRecipeProvider::new);
         pack.addProvider(BiomesOPlentyRecipeProvider::new);
+        pack.addProvider(NemosMossyBlocksRecipeProvider::new);
     }
 }

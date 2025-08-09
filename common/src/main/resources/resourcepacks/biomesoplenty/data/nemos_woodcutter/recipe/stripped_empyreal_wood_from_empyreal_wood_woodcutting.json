@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "biomesoplenty:empyreal_wood",
+  "inputCount": 1,
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:stripped_empyreal_wood"
+  }
+}

@@ -27,8 +27,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Optional;
 
-import static com.devnemo.nemos.woodcutter.Constants.BIOMES_O_PLENTY_MOD_ID_MOD_ID;
-import static com.devnemo.nemos.woodcutter.Constants.MOD_ID;
+import static com.devnemo.nemos.woodcutter.Constants.*;
 
 @Mod(Constants.MOD_ID)
 @EventBusSubscriber(modid = MOD_ID)
@@ -75,21 +74,51 @@ public class NeoForgeNemosWoodcutter {
             event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
         }
 
-        if (packType == PackType.SERVER_DATA && Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID_MOD_ID)) {
-            var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/biomesoplenty");
-            var packLocationInfo = new PackLocationInfo(
-                    "builtin/biomesoplenty",
-                    Component.literal("Biomes O' Plenty"),
-                    PackSource.BUILT_IN,
-                    Optional.empty());
-            var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
-            var packSelectionConfig = new PackSelectionConfig(true, Pack.Position.TOP, false);
-            var pack = Pack.readMetaAndCreate(packLocationInfo,
-                    pathResourcesSupplier,
-                    PackType.SERVER_DATA,
-                    packSelectionConfig);
-
-            event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+        if (packType == PackType.SERVER_DATA) {
+            registerBuiltInBiomesOPlentyDataPack(event);
+            registerBuiltInNemosMossyBlocksDataPack(event);
         }
+    }
+
+    public static void registerBuiltInBiomesOPlentyDataPack(AddPackFindersEvent event) {
+        if (!Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
+            return;
+        }
+
+        var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/biomesoplenty");
+        var packLocationInfo = new PackLocationInfo(
+                "builtin/biomesoplenty",
+                Component.literal("Biomes O' Plenty"),
+                PackSource.BUILT_IN,
+                Optional.empty());
+        var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
+        var packSelectionConfig = new PackSelectionConfig(true, Pack.Position.TOP, false);
+        var pack = Pack.readMetaAndCreate(packLocationInfo,
+                pathResourcesSupplier,
+                PackType.SERVER_DATA,
+                packSelectionConfig);
+
+        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+    }
+
+    public static void registerBuiltInNemosMossyBlocksDataPack(AddPackFindersEvent event) {
+        if (!Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_MOSSY_BLOCKS_MOD_ID)) {
+            return;
+        }
+
+        var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/nemos_mossy_blocks");
+        var packLocationInfo = new PackLocationInfo(
+                "builtin/nemos_mossy_blocks",
+                Component.literal("Nemo's Mossy Blocks"),
+                PackSource.BUILT_IN,
+                Optional.empty());
+        var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
+        var packSelectionConfig = new PackSelectionConfig(true, Pack.Position.TOP, false);
+        var pack = Pack.readMetaAndCreate(packLocationInfo,
+                pathResourcesSupplier,
+                PackType.SERVER_DATA,
+                packSelectionConfig);
+
+        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
     }
 }

@@ -3,6 +3,7 @@ package com.devnemo.nemos.woodcutter.datagen;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.init.ModTags;
+import com.devnemo.nemos.woodcutter.platform.Services;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
@@ -12,6 +13,8 @@ import net.minecraft.data.recipes.RecipeProvider;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
+
+import static com.devnemo.nemos.woodcutter.Constants.BIOMES_O_PLENTY_MOD_ID;
 
 public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
     
@@ -25,6 +28,10 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
 
             @Override
             public void buildRecipes() {
+                if (!Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
+                    return;
+                }
+
                 String hasFirLogsCriteria = "has_fir_logs";
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.FIR_LOGS, hasFirLogsCriteria, BOPItems.FIR_PLANKS, 4);
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, ModTags.Items.FIR_LOGS, hasFirLogsCriteria, BOPItems.FIR_BOAT);
@@ -37,6 +44,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.FIR_LOGS, hasFirLogsCriteria, BOPItems.FIR_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.FIR_LOGS, hasFirLogsCriteria, BOPItems.FIR_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.FIR_LOGS, hasFirLogsCriteria, BOPItems.FIR_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.FIR_LOG, BOPItems.STRIPPED_FIR_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.FIR_WOOD, BOPItems.STRIPPED_FIR_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.FIR_PLANKS, 2, BOPItems.FIR_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.FIR_PLANKS, BOPItems.FIR_BUTTON, 4);
@@ -62,6 +72,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.PINE_LOGS, hasPineLogsCriteria, BOPItems.PINE_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.PINE_LOGS, hasPineLogsCriteria, BOPItems.PINE_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.PINE_LOG, BOPItems.STRIPPED_PINE_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.PINE_WOOD, BOPItems.STRIPPED_PINE_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.PINE_PLANKS, 2, BOPItems.PINE_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.PINE_PLANKS, BOPItems.PINE_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.PINE_PLANKS, 2, BOPItems.PINE_DOOR, 2);
@@ -85,6 +98,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.MAPLE_LOGS, hasMapleLogsCriteria, BOPItems.MAPLE_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.MAPLE_LOGS, hasMapleLogsCriteria, BOPItems.MAPLE_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.MAPLE_LOGS, hasMapleLogsCriteria, BOPItems.MAPLE_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAPLE_LOG, BOPItems.STRIPPED_MAPLE_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAPLE_WOOD, BOPItems.STRIPPED_MAPLE_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.MAPLE_PLANKS, 2, BOPItems.MAPLE_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.MAPLE_PLANKS, BOPItems.MAPLE_BUTTON, 4);
@@ -110,6 +126,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.REDWOOD_LOGS, hasRedwoodLogsCriteria, BOPItems.REDWOOD_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.REDWOOD_LOGS, hasRedwoodLogsCriteria, BOPItems.REDWOOD_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.REDWOOD_LOG, BOPItems.STRIPPED_REDWOOD_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.REDWOOD_WOOD, BOPItems.STRIPPED_REDWOOD_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.REDWOOD_PLANKS, 2, BOPItems.REDWOOD_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.REDWOOD_PLANKS, BOPItems.REDWOOD_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.REDWOOD_PLANKS, 2, BOPItems.REDWOOD_DOOR, 2);
@@ -133,6 +152,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.MAHOGANY_LOGS, hasMahoganyLogsCriteria, BOPItems.MAHOGANY_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.MAHOGANY_LOGS, hasMahoganyLogsCriteria, BOPItems.MAHOGANY_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.MAHOGANY_LOGS, hasMahoganyLogsCriteria, BOPItems.MAHOGANY_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAHOGANY_LOG, BOPItems.STRIPPED_MAHOGANY_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAHOGANY_WOOD, BOPItems.STRIPPED_MAHOGANY_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.MAHOGANY_PLANKS, 2, BOPItems.MAHOGANY_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.MAHOGANY_PLANKS, BOPItems.MAHOGANY_BUTTON, 4);
@@ -158,6 +180,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.JACARANDA_LOGS, hasJacarandaLogsCriteria, BOPItems.JACARANDA_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.JACARANDA_LOGS, hasJacarandaLogsCriteria, BOPItems.JACARANDA_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.JACARANDA_LOG, BOPItems.STRIPPED_JACARANDA_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.JACARANDA_WOOD, BOPItems.STRIPPED_JACARANDA_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.JACARANDA_PLANKS, 2, BOPItems.JACARANDA_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.JACARANDA_PLANKS, BOPItems.JACARANDA_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.JACARANDA_PLANKS, 2, BOPItems.JACARANDA_DOOR, 2);
@@ -181,6 +206,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.PALM_LOGS, hasPalmLogsCriteria, BOPItems.PALM_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.PALM_LOGS, hasPalmLogsCriteria, BOPItems.PALM_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.PALM_LOGS, hasPalmLogsCriteria, BOPItems.PALM_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.PALM_LOG, BOPItems.STRIPPED_PALM_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.PALM_WOOD, BOPItems.STRIPPED_PALM_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.PALM_PLANKS, 2, BOPItems.PALM_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.PALM_PLANKS, BOPItems.PALM_BUTTON, 4);
@@ -206,6 +234,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.WILLOW_LOGS, hasWillowLogsCriteria, BOPItems.WILLOW_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.WILLOW_LOGS, hasWillowLogsCriteria, BOPItems.WILLOW_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.WILLOW_LOG, BOPItems.STRIPPED_WILLOW_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.WILLOW_WOOD, BOPItems.STRIPPED_WILLOW_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.WILLOW_PLANKS, 2, BOPItems.WILLOW_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.WILLOW_PLANKS, BOPItems.WILLOW_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.WILLOW_PLANKS, 2, BOPItems.WILLOW_DOOR, 2);
@@ -229,6 +260,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.DEAD_LOGS, hasDeadLogsCriteria, BOPItems.DEAD_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.DEAD_LOGS, hasDeadLogsCriteria, BOPItems.DEAD_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.DEAD_LOGS, hasDeadLogsCriteria, BOPItems.DEAD_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.DEAD_LOG, BOPItems.STRIPPED_DEAD_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.DEAD_WOOD, BOPItems.STRIPPED_DEAD_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.DEAD_PLANKS, 2, BOPItems.DEAD_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.DEAD_PLANKS, BOPItems.DEAD_BUTTON, 4);
@@ -254,6 +288,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.MAGIC_LOGS, hasMagicLogsCriteria, BOPItems.MAGIC_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.MAGIC_LOGS, hasMagicLogsCriteria, BOPItems.MAGIC_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAGIC_LOG, BOPItems.STRIPPED_MAGIC_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.MAGIC_WOOD, BOPItems.STRIPPED_MAGIC_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.MAGIC_PLANKS, 2, BOPItems.MAGIC_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.MAGIC_PLANKS, BOPItems.MAGIC_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.MAGIC_PLANKS, 2, BOPItems.MAGIC_DOOR, 2);
@@ -277,6 +314,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.UMBRAN_LOGS, hasUmbranLogsCriteria, BOPItems.UMBRAN_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.UMBRAN_LOGS, hasUmbranLogsCriteria, BOPItems.UMBRAN_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.UMBRAN_LOGS, hasUmbranLogsCriteria, BOPItems.UMBRAN_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.UMBRAN_LOG, BOPItems.STRIPPED_UMBRAN_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.UMBRAN_WOOD, BOPItems.STRIPPED_UMBRAN_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.UMBRAN_PLANKS, 2, BOPItems.UMBRAN_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.UMBRAN_PLANKS, BOPItems.UMBRAN_BUTTON, 4);
@@ -302,6 +342,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.HELLBARK_LOGS, hasHellbarkLogsCriteria, BOPItems.HELLBARK_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.HELLBARK_LOGS, hasHellbarkLogsCriteria, BOPItems.HELLBARK_TRAPDOOR, 8);
 
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.HELLBARK_LOG, BOPItems.STRIPPED_HELLBARK_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.HELLBARK_WOOD, BOPItems.STRIPPED_HELLBARK_WOOD);
+
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.HELLBARK_PLANKS, 2, BOPItems.HELLBARK_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.HELLBARK_PLANKS, BOPItems.HELLBARK_BUTTON, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.HELLBARK_PLANKS, 2, BOPItems.HELLBARK_DOOR, 2);
@@ -325,6 +368,9 @@ public class BiomesOPlentyRecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.EMPYREAL_LOGS, hasEmpyrealLogsCriteria, BOPItems.EMPYREAL_SLAB, 8);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, ModTags.Items.EMPYREAL_LOGS, hasEmpyrealLogsCriteria, BOPItems.EMPYREAL_STAIRS, 4);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, ModTags.Items.EMPYREAL_LOGS, hasEmpyrealLogsCriteria, BOPItems.EMPYREAL_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.EMPYREAL_LOG, BOPItems.STRIPPED_EMPYREAL_LOG);
+                createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, BOPBlocks.EMPYREAL_WOOD, BOPItems.STRIPPED_EMPYREAL_WOOD);
 
                 createWoodcuttingRecipe(RecipeCategory.TRANSPORTATION, BOPBlocks.EMPYREAL_PLANKS, 2, BOPItems.EMPYREAL_BOAT);
                 createWoodcuttingRecipe(RecipeCategory.REDSTONE, BOPBlocks.EMPYREAL_PLANKS, BOPItems.EMPYREAL_BUTTON, 4);

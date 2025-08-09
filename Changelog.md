@@ -1,4 +1,7 @@
 # Changelog v1.13
 
 ## Additions
-- Added built-in biomesoplenty recipes
+- Added built-in recipes for Nemo's Mossy Blocks
+
+## Changes
+- Added some missing recipes for Biomes O' Plenty

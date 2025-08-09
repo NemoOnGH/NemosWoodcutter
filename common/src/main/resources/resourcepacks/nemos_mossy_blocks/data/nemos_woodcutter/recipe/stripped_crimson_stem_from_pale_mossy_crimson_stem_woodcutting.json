@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "nemos_mossy_blocks:pale_mossy_crimson_stem",
+  "inputCount": 1,
+  "result": {
+    "count": 1,
+    "id": "minecraft:stripped_crimson_stem"
+  }
+}

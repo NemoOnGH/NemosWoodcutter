@@ -106,7 +106,8 @@ processResources {
             'terrablender_version'         : terrablender_version,
             'glitchcore_version'           : glitchcore_version,
             'night_config_version'         : night_config_version,
-            'typetools_version'            : typetools_version
+            'typetools_version'            : typetools_version,
+            'nemos_mossy_blocks_version'   : nemos_mossy_blocks_version
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {

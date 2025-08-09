@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#nemos_mossy_blocks:crimson_mossy_acacia_wood",
+  "inputCount": 1,
+  "result": {
+    "count": 16,
+    "id": "nemos_mossy_blocks:crimson_mossy_acacia_button"
+  }
+}

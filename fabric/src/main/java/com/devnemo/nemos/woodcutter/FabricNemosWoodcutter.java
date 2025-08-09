@@ -14,8 +14,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-import static com.devnemo.nemos.woodcutter.Constants.BIOMES_O_PLENTY_MOD_ID_MOD_ID;
-import static com.devnemo.nemos.woodcutter.Constants.MOD_ID;
+import static com.devnemo.nemos.woodcutter.Constants.*;
 
 public class FabricNemosWoodcutter implements ModInitializer {
 
@@ -23,8 +22,12 @@ public class FabricNemosWoodcutter implements ModInitializer {
     public void onInitialize() {
         NemosWoodcutterCommon.init();
 
-        if (Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID_MOD_ID)) {
+        if (Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
             registerBuiltInBiomesOPlentyDataPack();
+        }
+
+        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_MOSSY_BLOCKS_MOD_ID)) {
+            registerBuiltInNemosMossyBlocksDataPack();
         }
 
         ModCreativeModeTabs.register();
@@ -38,9 +41,19 @@ public class FabricNemosWoodcutter implements ModInitializer {
     private void registerBuiltInBiomesOPlentyDataPack() {
         FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
                 ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.fromNamespaceAndPath(MOD_ID, "biomesoplenty"),
+                        ResourceLocation.fromNamespaceAndPath(MOD_ID, BIOMES_O_PLENTY_MOD_ID),
                         container,
                         Component.literal("Biomes O' Plenty"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                ));
+    }
+
+    private void registerBuiltInNemosMossyBlocksDataPack() {
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.fromNamespaceAndPath(MOD_ID, NEMOS_MOSSY_BLOCKS_MOD_ID),
+                        container,
+                        Component.literal("Nemo's Mossy Blocks"),
                         ResourcePackActivationType.ALWAYS_ENABLED
                 ));
     }
