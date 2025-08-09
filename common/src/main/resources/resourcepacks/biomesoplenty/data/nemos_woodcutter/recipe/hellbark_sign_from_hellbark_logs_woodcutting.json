@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#biomesoplenty:hellbark_logs",
+  "inputCount": 1,
+  "result": {
+    "count": 12,
+    "id": "biomesoplenty:hellbark_sign"
+  }
+}

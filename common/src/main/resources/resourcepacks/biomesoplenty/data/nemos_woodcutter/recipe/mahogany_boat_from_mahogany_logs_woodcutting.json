@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#biomesoplenty:mahogany_logs",
+  "inputCount": 1,
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:mahogany_boat"
+  }
+}

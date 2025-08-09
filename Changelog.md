@@ -1,5 +1,4 @@
-# Changelog v1.12.9
+# Changelog v1.13
 
-## Fixes
-- Fixed result slot vanishing when clicking on recipe twice
-- Added ladder recipe for oak logs
+## Additions
+- Added built-in biomesoplenty recipes

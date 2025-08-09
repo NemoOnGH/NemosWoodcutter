@@ -1,0 +1,9 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "biomesoplenty:hellbark_planks",
+  "inputCount": 2,
+  "result": {
+    "count": 1,
+    "id": "biomesoplenty:hellbark_boat"
+  }
+}

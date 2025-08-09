@@ -16,15 +16,18 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.nemonotfound.nemos.woodcutter.NemosWoodcutterFabric"
+            "com.devnemo.nemos.woodcutter.FabricNemosWoodcutter"
         ],
         "client": [
-          "com.nemonotfound.nemos.woodcutter.NemosWoodcutterClientFabric"
+          "com.devnemo.nemos.woodcutter.FabricNemosWoodcutterClient"
+        ],
+        "fabric-datagen": [
+            "com.devnemo.nemos.woodcutter.DataGenerator"
         ]
     },
     "mixins": [
         "${mod_id}.mixins.json",
-        "nemos_woodcutter.fabric.mixins.json"
+        "${mod_id}.fabric.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
