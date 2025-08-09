@@ -18,3 +18,4 @@ move_files() {
 }
 
 move_files "biomesoplenty"
+move_files "nemos_mossy_blocks"
