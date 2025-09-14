@@ -11,9 +11,11 @@ For more information check the [wiki](https://wiki.devnemo.com/projects/minecraf
 
 # Supported Mods
 
-| Mod                                                                              | Author    | Added in Version |
-|----------------------------------------------------------------------------------|-----------|------------------|
-| [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty) | Forstride | 1.13             |
+| Mod                                                                                        | Author         | Added in Version |
+|--------------------------------------------------------------------------------------------|----------------|------------------|
+| [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty)           | For stride     | 1.13             |
+| [Nemo's Mossy Blocks](https://www.curseforge.com/minecraft/mc-mods/nemos-mossy-blocks)     | DevNemo _(me)_ | 1.14             |
+| [Nemo's Vertical Slabs](https://www.curseforge.com/minecraft/mc-mods/nemos-vertical-slabs) | DevNemo _(me)_ | 1.14.1           |
 
 | Mod                                                                                                                | Author       | Supported Versions |
 |--------------------------------------------------------------------------------------------------------------------|--------------|--------------------|
