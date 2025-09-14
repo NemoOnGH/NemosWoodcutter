@@ -1,0 +1,12 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "minecraft:oak_planks",
+  "inputCount": 1,
+  "modDependencies": [
+    "nemos_vertical_slabs"
+  ],
+  "result": {
+    "count": 2,
+    "id": "nemos_vertical_slabs:oak_vertical_slab"
+  }
+}

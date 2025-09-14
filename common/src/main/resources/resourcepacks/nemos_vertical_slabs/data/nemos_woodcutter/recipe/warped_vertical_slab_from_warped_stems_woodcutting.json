@@ -1,0 +1,12 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#minecraft:warped_stems",
+  "inputCount": 1,
+  "modDependencies": [
+    "nemos_vertical_slabs"
+  ],
+  "result": {
+    "count": 8,
+    "id": "nemos_vertical_slabs:warped_vertical_slab"
+  }
+}

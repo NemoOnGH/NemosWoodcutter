@@ -1,0 +1,13 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "biomesoplenty:redwood_planks",
+  "inputCount": 1,
+  "modDependencies": [
+    "nemos_vertical_slabs",
+    "biomesoplenty"
+  ],
+  "result": {
+    "count": 2,
+    "id": "nemos_vertical_slabs:redwood_vertical_slab"
+  }
+}

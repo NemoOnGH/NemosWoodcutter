@@ -13,17 +13,22 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class SingleWithCountRecipe implements Recipe<SingleRecipeInput> {
 
     private final String group;
+    private final List<String> modDependencies;
     private final Ingredient ingredient;
     private final int inputCount;
     private final ItemStack result;
     @Nullable
     private PlacementInfo ingredientPlacement;
 
-    public SingleWithCountRecipe(String group, Ingredient ingredient, int inputCount, ItemStack result) {
+    public SingleWithCountRecipe(String group, List<String> modDependencies, Ingredient ingredient, int inputCount, ItemStack result) {
         this.group = group;
+        this.modDependencies = modDependencies;
         this.ingredient = ingredient;
         this.inputCount = inputCount;
         this.result = result;
@@ -42,6 +47,10 @@ public abstract class SingleWithCountRecipe implements Recipe<SingleRecipeInput>
     @Override
     public @NotNull String group() {
         return this.group;
+    }
+
+    public List<String> modDependencies() {
+        return this.modDependencies;
     }
 
     public Ingredient ingredient() {
@@ -71,7 +80,7 @@ public abstract class SingleWithCountRecipe implements Recipe<SingleRecipeInput>
 
     @FunctionalInterface
     public interface RecipeFactory<T extends SingleWithCountRecipe> {
-        T create(String group, Ingredient ingredient, int inputCount, ItemStack result);
+        T create(String group, List<String> modDependencies, Ingredient ingredient, int inputCount, ItemStack result);
     }
 
     public static class Serializer<T extends SingleWithCountRecipe> implements RecipeSerializer<T> {
@@ -82,6 +91,7 @@ public abstract class SingleWithCountRecipe implements Recipe<SingleRecipeInput>
             this.codec = RecordCodecBuilder.mapCodec(
                     instance -> instance.group(
                                     Codec.STRING.optionalFieldOf("group", "").forGetter(SingleWithCountRecipe::group),
+                                    Codec.list(Codec.STRING).optionalFieldOf("modDependencies", List.of()).forGetter(SingleWithCountRecipe::modDependencies),
                                     Ingredient.CODEC.fieldOf("ingredient").forGetter(SingleWithCountRecipe::ingredient),
                                     Codec.INT.fieldOf("inputCount").forGetter(SingleWithCountRecipe::inputCount),
                                     ItemStack.STRICT_CODEC.fieldOf("result").forGetter(SingleWithCountRecipe::result)
@@ -91,6 +101,8 @@ public abstract class SingleWithCountRecipe implements Recipe<SingleRecipeInput>
             this.packetCodec = StreamCodec.composite(
                     ByteBufCodecs.STRING_UTF8,
                     SingleWithCountRecipe::group,
+                    ByteBufCodecs.collection(ArrayList::new, ByteBufCodecs.STRING_UTF8),
+                    SingleWithCountRecipe::modDependencies,
                     Ingredient.CONTENTS_STREAM_CODEC,
                     SingleWithCountRecipe::ingredient,
                     ByteBufCodecs.INT,

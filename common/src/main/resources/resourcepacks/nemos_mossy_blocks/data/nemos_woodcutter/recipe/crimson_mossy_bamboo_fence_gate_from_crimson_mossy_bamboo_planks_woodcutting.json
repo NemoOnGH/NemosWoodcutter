@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "nemos_mossy_blocks:crimson_mossy_bamboo_planks",
   "inputCount": 1,
+  "modDependencies": [
+    "nemos_mossy_blocks"
+  ],
   "result": {
     "count": 1,
     "id": "nemos_mossy_blocks:crimson_mossy_bamboo_fence_gate"

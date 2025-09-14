@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "biomesoplenty:palm_log",
   "inputCount": 1,
+  "modDependencies": [
+    "biomesoplenty"
+  ],
   "result": {
     "count": 1,
     "id": "biomesoplenty:stripped_palm_log"

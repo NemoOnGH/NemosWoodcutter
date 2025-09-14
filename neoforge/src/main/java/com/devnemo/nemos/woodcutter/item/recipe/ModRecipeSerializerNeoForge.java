@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.devnemo.nemos.woodcutter.Constants.LOG;
 import static com.devnemo.nemos.woodcutter.Constants.MOD_ID;
-import static com.devnemo.nemos.woodcutter.recipe.ModRecipeSerializer.WOODCUTTING;
+import static com.devnemo.nemos.woodcutter.recipe.WoodcutterRecipeSerializer.WOODCUTTING;
 
 public class ModRecipeSerializerNeoForge {
 

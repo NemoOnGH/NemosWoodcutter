@@ -30,6 +30,18 @@ public class FabricNemosWoodcutter implements ModInitializer {
             registerBuiltInNemosMossyBlocksDataPack();
         }
 
+        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_VERTICAL_SLABS_MOD_ID)) {
+            registerBuiltInNemosVerticalSlabs();
+        }
+
+        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_VERTICAL_SLABS_MOD_ID) && Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
+            registerBuiltInNemosVerticalSlabsXBiomesOPlentyDataPack();
+        }
+
+        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_VERTICAL_SLABS_MOD_ID) && Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_MOSSY_BLOCKS_MOD_ID)) {
+            registerBuiltInNemosVerticalSlabsXNemosMossyBlocksDataPack();
+        }
+
         ModCreativeModeTabs.register();
         ModRecipeSerializerFabric.register();
         ModRecipeTypesFabric.register();
@@ -54,6 +66,36 @@ public class FabricNemosWoodcutter implements ModInitializer {
                         ResourceLocation.fromNamespaceAndPath(MOD_ID, NEMOS_MOSSY_BLOCKS_MOD_ID),
                         container,
                         Component.literal("Nemo's Mossy Blocks"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                ));
+    }
+
+    private void registerBuiltInNemosVerticalSlabs() {
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.fromNamespaceAndPath(MOD_ID, NEMOS_VERTICAL_SLABS_MOD_ID),
+                        container,
+                        Component.literal("Nemo's Vertical Slabs"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                ));
+    }
+
+    private void registerBuiltInNemosVerticalSlabsXNemosMossyBlocksDataPack() {
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.fromNamespaceAndPath(MOD_ID, NEMOS_VERTICAL_SLABS_MOD_ID + "_" + NEMOS_MOSSY_BLOCKS_MOD_ID),
+                        container,
+                        Component.literal("Nemo's Vertical Slabs x Biomes O' Plenty"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                ));
+    }
+
+    private void registerBuiltInNemosVerticalSlabsXBiomesOPlentyDataPack() {
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.fromNamespaceAndPath(MOD_ID, NEMOS_VERTICAL_SLABS_MOD_ID + "_" + BIOMES_O_PLENTY_MOD_ID),
+                        container,
+                        Component.literal("Nemo's Vertical Slabs x Nemo's Mossy Blocks"),
                         ResourcePackActivationType.ALWAYS_ENABLED
                 ));
     }

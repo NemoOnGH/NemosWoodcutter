@@ -16,18 +16,18 @@ import java.util.List;
 
 public class WoodcuttingRecipe extends SingleWithCountRecipe {
 
-    public WoodcuttingRecipe(String group, Ingredient ingredient, int inputCount, ItemStack result) {
-        super(group, ingredient, inputCount, result);
+    public WoodcuttingRecipe(String group, List<String> modDependencies, Ingredient ingredient, int inputCount, ItemStack result) {
+        super(group, modDependencies, ingredient, inputCount, result);
     }
 
     @Override
     public @NotNull RecipeSerializer<WoodcuttingRecipe> getSerializer() {
-        return ModRecipeSerializer.WOODCUTTING.get();
+        return WoodcutterRecipeSerializer.WOODCUTTING.get();
     }
 
     @Override
     public @NotNull RecipeType<WoodcuttingRecipe> getType() {
-        return ModRecipeTypes.WOODCUTTING.get();
+        return WoodcutterRecipeTypes.WOODCUTTING.get();
     }
 
     @Override

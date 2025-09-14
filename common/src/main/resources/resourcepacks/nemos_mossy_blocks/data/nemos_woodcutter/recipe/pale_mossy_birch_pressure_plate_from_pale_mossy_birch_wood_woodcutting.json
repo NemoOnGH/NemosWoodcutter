@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "#nemos_mossy_blocks:pale_mossy_birch_wood",
   "inputCount": 1,
+  "modDependencies": [
+    "nemos_mossy_blocks"
+  ],
   "result": {
     "count": 16,
     "id": "nemos_mossy_blocks:pale_mossy_birch_pressure_plate"

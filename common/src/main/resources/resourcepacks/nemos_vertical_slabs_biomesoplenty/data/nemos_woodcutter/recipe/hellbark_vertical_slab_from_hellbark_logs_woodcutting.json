@@ -1,0 +1,13 @@
+{
+  "type": "nemos_woodcutter:woodcutting",
+  "ingredient": "#biomesoplenty:hellbark_logs",
+  "inputCount": 1,
+  "modDependencies": [
+    "nemos_vertical_slabs",
+    "biomesoplenty"
+  ],
+  "result": {
+    "count": 8,
+    "id": "nemos_vertical_slabs:hellbark_vertical_slab"
+  }
+}

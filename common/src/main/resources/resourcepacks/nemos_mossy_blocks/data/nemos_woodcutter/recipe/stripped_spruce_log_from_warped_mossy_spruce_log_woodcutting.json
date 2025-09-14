@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "nemos_mossy_blocks:warped_mossy_spruce_log",
   "inputCount": 1,
+  "modDependencies": [
+    "nemos_mossy_blocks"
+  ],
   "result": {
     "count": 1,
     "id": "minecraft:stripped_spruce_log"

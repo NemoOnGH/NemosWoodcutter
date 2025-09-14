@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "#nemos_mossy_blocks:warped_mossy_dark_oak_wood",
   "inputCount": 1,
+  "modDependencies": [
+    "nemos_mossy_blocks"
+  ],
   "result": {
     "count": 4,
     "id": "nemos_mossy_blocks:warped_mossy_dark_oak_planks"

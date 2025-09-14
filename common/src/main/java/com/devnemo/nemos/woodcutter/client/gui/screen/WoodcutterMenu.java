@@ -37,8 +37,9 @@ public class WoodcutterMenu extends AbstractContainerMenu {
     long lastTakeTime;
     final Slot inputSlot;
     final Slot resultSlot;
-    Runnable slotUpdateListener = () -> {};
-    public final Container input = new SimpleContainer(1){
+    Runnable slotUpdateListener = () -> {
+    };
+    public final Container input = new SimpleContainer(1) {
 
         @Override
         public void setChanged() {
@@ -129,28 +130,26 @@ public class WoodcutterMenu extends AbstractContainerMenu {
 
     @Override
     public boolean clickMenuButton(@NotNull Player player, int id) {
-        if (this.selectedRecipeIndex.get() == id) {
+        if (this.selectedRecipeIndex.get() == id || !this.isValidRecipeIndex(id)) {
             return false;
         } else {
-            if (this.isValidRecipeIndex(id)) {
-                getRecipeHolder(id).ifPresent(recipeDisplay -> {
-                    var optionalRecipeHolder = recipeDisplay.recipe();
+            getRecipeHolder(id).ifPresent(recipeDisplay -> {
+                var optionalRecipeHolder = recipeDisplay.recipe();
 
-                    if (optionalRecipeHolder.isEmpty()) {
-                        return;
-                    }
+                if (optionalRecipeHolder.isEmpty()) {
+                    return;
+                }
 
-                    var recipeHolder = optionalRecipeHolder.get();
-                    var recipe = recipeHolder.value();
-                    var inputCount = inputSlot.getItem().getCount();
+                var recipeHolder = optionalRecipeHolder.get();
+                var recipe = recipeHolder.value();
+                var inputCount = inputSlot.getItem().getCount();
 
-                    if (inputCount >= recipe.inputCount()) {
-                        this.selectedRecipeIndex.set(id);
-                        this.resultContainer.setRecipeUsed(recipeHolder);
-                        this.resultSlot.set(recipe.assemble(createRecipeInput(), this.level.registryAccess()));
-                    }
-                });
-            }
+                if (inputCount >= recipe.inputCount()) {
+                    this.selectedRecipeIndex.set(id);
+                    this.resultContainer.setRecipeUsed(recipeHolder);
+                    this.resultSlot.set(recipe.assemble(createRecipeInput(), this.level.registryAccess()));
+                }
+            });
 
             return true;
         }

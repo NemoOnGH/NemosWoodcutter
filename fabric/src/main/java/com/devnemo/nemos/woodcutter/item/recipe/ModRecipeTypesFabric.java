@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 import static com.devnemo.nemos.woodcutter.Constants.LOG;
 import static com.devnemo.nemos.woodcutter.Constants.MOD_ID;
-import static com.devnemo.nemos.woodcutter.recipe.ModRecipeTypes.WOODCUTTING;
+import static com.devnemo.nemos.woodcutter.recipe.WoodcutterRecipeTypes.WOODCUTTING;
 
 public class ModRecipeTypesFabric {
 

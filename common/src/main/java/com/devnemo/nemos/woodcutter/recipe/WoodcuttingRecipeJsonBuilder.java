@@ -19,9 +19,7 @@ import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static com.devnemo.nemos.woodcutter.Constants.MOD_ID;
 
@@ -36,6 +34,7 @@ public class WoodcuttingRecipeJsonBuilder implements RecipeBuilder {
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
     @Nullable
     private String group;
+    private List<String> modDependencies = new ArrayList<>();
 
     public WoodcuttingRecipeJsonBuilder(
             RecipeCategory category, SingleWithCountRecipe.RecipeFactory<?> recipeFactory, Ingredient input,
@@ -76,6 +75,11 @@ public class WoodcuttingRecipeJsonBuilder implements RecipeBuilder {
         return this;
     }
 
+    public @NotNull RecipeBuilder modDependencies(@Nullable List<String> modDependencies) {
+        this.modDependencies = modDependencies;
+        return this;
+    }
+
     @Override
     public @NotNull Item getResult() {
         return this.output;
@@ -94,16 +98,16 @@ public class WoodcuttingRecipeJsonBuilder implements RecipeBuilder {
     }
 
     @Override
-    public void save(RecipeOutput exporter, @NotNull ResourceKey<Recipe<?>> resourceKey) {
+    public void save(RecipeOutput recipeOutput, @NotNull ResourceKey<Recipe<?>> resourceKey) {
         this.validate(resourceKey);
-        Advancement.Builder builder = exporter.advancement()
+        Advancement.Builder builder = recipeOutput.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey))
                 .rewards(AdvancementRewards.Builder.recipe(resourceKey))
                 .requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(builder::addCriterion);
         SingleWithCountRecipe singleWithCountRecipe = this.recipeFactory
-                .create(Objects.requireNonNullElse(this.group, ""), this.input, this.inputCount, new ItemStack(this.output, this.count));
-        exporter.accept(resourceKey, singleWithCountRecipe, builder.build(resourceKey.location().withPrefix("recipes/" + this.category.getFolderName() + "/")));
+                .create(Objects.requireNonNullElse(this.group, ""), this.modDependencies, this.input, this.inputCount, new ItemStack(this.output, this.count));
+        recipeOutput.accept(resourceKey, singleWithCountRecipe, builder.build(resourceKey.location().withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 
     private void validate(ResourceKey<Recipe<?>> resourceKey) {

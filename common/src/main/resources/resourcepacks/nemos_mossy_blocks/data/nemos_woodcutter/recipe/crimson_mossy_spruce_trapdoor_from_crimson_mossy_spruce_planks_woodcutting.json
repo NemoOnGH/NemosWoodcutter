@@ -2,6 +2,9 @@
   "type": "nemos_woodcutter:woodcutting",
   "ingredient": "nemos_mossy_blocks:crimson_mossy_spruce_planks",
   "inputCount": 1,
+  "modDependencies": [
+    "nemos_mossy_blocks"
+  ],
   "result": {
     "count": 2,
     "id": "nemos_mossy_blocks:crimson_mossy_spruce_trapdoor"
