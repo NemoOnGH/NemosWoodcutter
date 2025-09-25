@@ -154,7 +154,7 @@ public class WoodcutterScreen extends AbstractContainerScreen<WoodcutterMenu> {
             firstRecipeX = this.leftPos + 119;
             firstRecipeY = this.topPos + 9;
 
-            if (mouseX >= firstRecipeX && mouseX < firstRecipeX + 12 && mouseY >= firstRecipeY && mouseY < firstRecipeY + SCROLLER_FULL_HEIGHT) {
+            if (mouseX >= firstRecipeX && mouseX < firstRecipeX + maxVisibleRecipeCount && mouseY >= firstRecipeY && mouseY < firstRecipeY + SCROLLER_FULL_HEIGHT) {
                 this.scrolling = true;
             }
         }
