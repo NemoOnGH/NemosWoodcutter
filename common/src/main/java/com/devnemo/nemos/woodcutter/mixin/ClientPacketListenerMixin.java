@@ -33,7 +33,7 @@ public abstract class ClientPacketListenerMixin extends ClientCommonPacketListen
     @Override
     public void nemosWoodcutter$handleUpdateRecipes(ClientboundUpdateRecipesPacket packet) {
         Minecraft minecraft = ((MinecraftClientGetter)this).nemosWoodcutter$getMinecraft();
-        PacketUtils.ensureRunningOnSameThread(packet, this, minecraft);
+        PacketUtils.ensureRunningOnSameThread(packet, this, minecraft.packetProcessor());
         this.nemosWoodcutter$modRecipeManager = new ClientModRecipeManager(packet.woodcuttingRecipes());
     }
 }

@@ -41,7 +41,7 @@ public class WoodcutterBlock extends Block {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hit) {
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }
         player.openMenu(createScreenHandlerFactory(level, pos));

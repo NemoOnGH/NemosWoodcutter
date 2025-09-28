@@ -11,14 +11,15 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    modImplementation("maven.modrinth:biomes-o-plenty:${biomes_o_plenty_version}-fabric")
-    modImplementation("maven.modrinth:terrablender:${terrablender_version}-fabric")
-    modImplementation("maven.modrinth:glitchcore:${glitchcore_version}-fabric")
-    implementation("com.electronwill.night-config:toml:${night_config_version}")
-    implementation("com.electronwill.night-config:core:${night_config_version}")
-    implementation("net.jodah:typetools:${typetools_version}")
-    modImplementation("maven.modrinth:nemos-mossy-blocks:${nemos_mossy_blocks_version}-fabric")
-    modImplementation("maven.modrinth:nemos-vertical-slabs:${nemos_vertical_slabs_version}-fabric")
+
+    modCompileOnly("maven.modrinth:biomes-o-plenty:${biomes_o_plenty_version}-fabric")
+    modCompileOnly("maven.modrinth:terrablender:${terrablender_version}-fabric")
+    modCompileOnly("maven.modrinth:glitchcore:${glitchcore_version}-fabric")
+    compileOnly("com.electronwill.night-config:toml:${night_config_version}")
+    compileOnly("com.electronwill.night-config:core:${night_config_version}")
+    compileOnly("net.jodah:typetools:${typetools_version}")
+    modCompileOnly("maven.modrinth:nemos-mossy-blocks:${nemos_mossy_blocks_version}-fabric")
+    modCompileOnly("maven.modrinth:nemos-vertical-slabs:${nemos_vertical_slabs_version}-fabric")
 }
 
 fabricApi {

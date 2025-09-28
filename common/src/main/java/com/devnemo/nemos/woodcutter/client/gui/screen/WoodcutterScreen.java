@@ -3,6 +3,7 @@ package com.devnemo.nemos.woodcutter.client.gui.screen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
@@ -130,8 +131,10 @@ public class WoodcutterScreen extends AbstractContainerScreen<WoodcutterMenu> {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(@NotNull MouseButtonEvent mouseButtonEvent, boolean bl) {
         this.scrolling = false;
+        var mouseX = mouseButtonEvent.x();
+        var mouseY = mouseButtonEvent.y();
 
         if (this.areRecipesDisplayed) {
             var firstRecipeX = this.leftPos + RELATIVE_RECIPE_X;
@@ -159,7 +162,7 @@ public class WoodcutterScreen extends AbstractContainerScreen<WoodcutterMenu> {
             }
         }
 
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(mouseButtonEvent, bl);
     }
 
     private void handleRecipeSelect(int recipeIndex) {
@@ -177,7 +180,9 @@ public class WoodcutterScreen extends AbstractContainerScreen<WoodcutterMenu> {
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+    public boolean mouseDragged(@NotNull MouseButtonEvent mouseButtonEvent, double dragX, double dragY) {
+        var mouseY = mouseButtonEvent.y();
+
         if (this.scrolling && this.isScrollBarActive()) {
             int i = this.topPos + RELATIVE_RECIPE_Y;
             int j = i + SCROLLER_FULL_HEIGHT;
@@ -187,7 +192,7 @@ public class WoodcutterScreen extends AbstractContainerScreen<WoodcutterMenu> {
 
             return true;
         } else {
-            return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+            return super.mouseDragged(mouseButtonEvent, dragX, dragY);
         }
     }
 
