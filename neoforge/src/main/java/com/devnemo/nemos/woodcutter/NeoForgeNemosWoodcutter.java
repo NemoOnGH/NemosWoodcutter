@@ -113,27 +113,5 @@ public class NeoForgeNemosWoodcutter {
                 true,
                 Pack.Position.TOP
         );
-
-        if (Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
-            event.addPackFinders(
-                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_vertical_slabs_biomesoplenty"),
-                    PackType.SERVER_DATA,
-                    Component.literal("Nemo's Vertical Slabs X Biomes O' Plenty"),
-                    PackSource.BUILT_IN,
-                    true,
-                    Pack.Position.TOP
-            );
-        }
-
-        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_MOSSY_BLOCKS_MOD_ID)) {
-            event.addPackFinders(
-                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_vertical_slabs_nemos_mossy_blocks"),
-                    PackType.SERVER_DATA,
-                    Component.literal("Nemo's Vertical Slabs X Nemo's Mossy Blocks"),
-                    PackSource.BUILT_IN,
-                    true,
-                    Pack.Position.TOP
-            );
-        }
     }
 }
