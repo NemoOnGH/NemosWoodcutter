@@ -10,22 +10,17 @@ import com.devnemo.nemos.woodcutter.platform.Services;
 import com.devnemo.nemos.woodcutter.screen.ModMenuTypesNeoForge;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.PackLocationInfo;
-import net.minecraft.server.packs.PackSelectionConfig;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.Optional;
 
 import static com.devnemo.nemos.woodcutter.Constants.*;
 
@@ -58,25 +53,20 @@ public class NeoForgeNemosWoodcutter {
         var packType = event.getPackType();
 
         if (packType == PackType.CLIENT_RESOURCES) {
-            var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/dark_mode");
-            var packLocationInfo = new PackLocationInfo(
-                    "builtin/dark_mode",
+            event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/dark_mode"),
+                    PackType.CLIENT_RESOURCES,
                     Component.translatable("resourcePack.nemos_woodcutter.dark_mode.name"),
                     PackSource.BUILT_IN,
-                    Optional.empty());
-            var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
-            var packSelectionConfig = new PackSelectionConfig(false, Pack.Position.TOP, false);
-            var pack = Pack.readMetaAndCreate(packLocationInfo,
-                    pathResourcesSupplier,
-                    PackType.CLIENT_RESOURCES,
-                    packSelectionConfig);
-
-            event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+                    false,
+                    Pack.Position.TOP
+            );
         }
 
         if (packType == PackType.SERVER_DATA) {
             registerBuiltInBiomesOPlentyDataPack(event);
             registerBuiltInNemosMossyBlocksDataPack(event);
+            registerBuiltInNemosVerticalSlabsDataPack(event);
         }
     }
 
@@ -85,20 +75,14 @@ public class NeoForgeNemosWoodcutter {
             return;
         }
 
-        var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/biomesoplenty");
-        var packLocationInfo = new PackLocationInfo(
-                "builtin/biomesoplenty",
+        event.addPackFinders(
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/biomesoplenty"),
+                PackType.SERVER_DATA,
                 Component.literal("Biomes O' Plenty"),
                 PackSource.BUILT_IN,
-                Optional.empty());
-        var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
-        var packSelectionConfig = new PackSelectionConfig(true, Pack.Position.TOP, false);
-        var pack = Pack.readMetaAndCreate(packLocationInfo,
-                pathResourcesSupplier,
-                PackType.SERVER_DATA,
-                packSelectionConfig);
-
-        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+                true,
+                Pack.Position.TOP
+        );
     }
 
     public static void registerBuiltInNemosMossyBlocksDataPack(AddPackFindersEvent event) {
@@ -106,19 +90,50 @@ public class NeoForgeNemosWoodcutter {
             return;
         }
 
-        var resourcePath = ModList.get().getModFileById(MOD_ID).getFile().findResource("resourcepacks/nemos_mossy_blocks");
-        var packLocationInfo = new PackLocationInfo(
-                "builtin/nemos_mossy_blocks",
+        event.addPackFinders(
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_mossy_blocks"),
+                PackType.SERVER_DATA,
                 Component.literal("Nemo's Mossy Blocks"),
                 PackSource.BUILT_IN,
-                Optional.empty());
-        var pathResourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
-        var packSelectionConfig = new PackSelectionConfig(true, Pack.Position.TOP, false);
-        var pack = Pack.readMetaAndCreate(packLocationInfo,
-                pathResourcesSupplier,
-                PackType.SERVER_DATA,
-                packSelectionConfig);
+                true,
+                Pack.Position.TOP
+        );
+    }
 
-        event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+    public static void registerBuiltInNemosVerticalSlabsDataPack(AddPackFindersEvent event) {
+        if (!Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_VERTICAL_SLABS_MOD_ID)) {
+            return;
+        }
+
+        event.addPackFinders(
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_vertical_slabs"),
+                PackType.SERVER_DATA,
+                Component.literal("Nemo's Vertical Slabs"),
+                PackSource.BUILT_IN,
+                true,
+                Pack.Position.TOP
+        );
+
+        if (Services.MOD_LOADER_HELPER.isModLoaded(BIOMES_O_PLENTY_MOD_ID)) {
+            event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_vertical_slabs_biomesoplenty"),
+                    PackType.SERVER_DATA,
+                    Component.literal("Nemo's Vertical Slabs X Biomes O' Plenty"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+            );
+        }
+
+        if (Services.MOD_LOADER_HELPER.isModLoaded(NEMOS_MOSSY_BLOCKS_MOD_ID)) {
+            event.addPackFinders(
+                    ResourceLocation.fromNamespaceAndPath(MOD_ID, "resourcepacks/nemos_vertical_slabs_nemos_mossy_blocks"),
+                    PackType.SERVER_DATA,
+                    Component.literal("Nemo's Vertical Slabs X Nemo's Mossy Blocks"),
+                    PackSource.BUILT_IN,
+                    true,
+                    Pack.Position.TOP
+            );
+        }
     }
 }
